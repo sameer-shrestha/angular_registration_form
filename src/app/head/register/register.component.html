@@ -1,0 +1,39 @@
+<h1 class="red"><img src="../assets/registration.jpg" width="450 cm"></h1>
+
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]='service.formData.id'>
+  <div class="form-group">
+    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full name" required>
+    <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">your name is required.</div>
+  </div>
+  <div class="form-group">
+    <input name="email" #email="ngModel" [(ngModel)]="service.formData.email" class="form-control" placeholder="email" required email>
+    <div *ngIf="email.errors && email.errors.required && email.touched" class="validation-error">email is required.</div>
+    <div *ngIf="email.errors && email.errors.email && email.touched" class="validation-error">Invalid Email format.</div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input name="username" #username="ngModel" [(ngModel)]="service.formData.username" 
+      class="form-control" placeholder="username" required>
+      <div *ngIf="username.invalid && username.touched" class="validation-error">username is required</div>
+    </div>
+    <div class="form-group  col-md-6">
+      <input name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" 
+      class="form-control" placeholder="Mobile" required minlength="10">
+      <div *ngIf="mobile.invalid && mobile.touched" class="validation-error">This field is required.</div>
+      <div *ngIf="mobile.hasError('minlength')" class="validation-error">
+        Mobile is 10 digits
+      </div>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <input name="address" #address="ngModel" [(ngModel)]="service.formData.address" class="form-control" placeholder="address" required>
+    <div *ngIf="address.invalid && address.touched" class="validation-error">address is required.</div>
+  </div>
+  <div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
+  </div>
+  <br>
+  <br>
+</form>

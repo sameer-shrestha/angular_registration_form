@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+      <th>id</th>
+      <th>username</th>
+      <th>Name</th>
+      <th>email</th>
+      <th>Mobile</th>
+      <th>address</th>
+     
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let emp of emp$ | async"> -->
+        <tr *ngFor="let emp of list">
+        <td (click)="onEdit(emp)">{{emp.id}}</td>
+        <td (click)="onEdit(emp)">{{emp.username}}</td>
+        <td (click)="onEdit(emp)">{{emp.fullName}}</td>
+        <td (click)="onEdit(emp)">{{emp.email}}</td>
+        <td (click)="onEdit(emp)">{{emp.mobile}}</td>
+        <td (click)="onEdit(emp)">{{emp.address}}</td>
+        <td><a class="btn text-danger" (click)="onDelete(emp.id)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
